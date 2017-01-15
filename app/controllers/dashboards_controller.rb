@@ -1,24 +1,28 @@
 class DashboardsController < ApplicationController
 	 before_action :set_dashboard, only: [:show, :edit, :update, :destroy]
+   #before_action :set_dashboards_list, only: [:index, :show, :new, :edit]
 
   def index
-    @dashboards = Dashboard.all
+    if user_signed_in?
+      @dashboards = current_user.dashboards
+    end     
   end
 
   def show
-  	@dashboards = Dashboard.all
+  	
   end
 
   def new
     @dashboard = Dashboard.new
-    @dashboards = Dashboard.all
+    
   end
 
   def edit
-  	@dashboards = Dashboard.all
+  	
   end
 
   def create
+    
     @dashboard = Dashboard.new(dashboard_params)
     respond_to do |format|
       if @dashboard.save
@@ -57,9 +61,13 @@ class DashboardsController < ApplicationController
       @dashboard = Dashboard.find(params[:id])
     end
 
+    def set_dashboards_list
+      @dashboards = current_user.dashboards
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def dashboard_params
-      params.require(:dashboard).permit(:name, :description)
+      params.require(:dashboard).permit(:name, :description, :user_id)
 end
 
 

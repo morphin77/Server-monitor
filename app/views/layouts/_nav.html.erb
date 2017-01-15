@@ -13,6 +13,9 @@
     <div class="collapse navbar-collapse">
       <% if user_signed_in? %>
         <%= render 'layouts/menu' %>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+        </ul>
       <% else %>
         <ul class="nav navbar-nav pull-right">
           <li><%= link_to 'Sign in', new_user_session_path %></li>

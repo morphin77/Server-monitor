@@ -15,13 +15,13 @@
 
 <table class="table">
   <tbody>
-  <% @dashboards.each do |dashboard| %>
-    <tr>
-      <td width='20%'><h4><%= link_to dashboard.name, dashboard %></h4></td>
-      <td width='80%'><h4><small><%= dashboard.description %></small></h4></td>
-      <!--<td><#%= link_to 'Edit', edit_dashboard_path(dashboard) %></td>
-      <td><#%= link_to 'Destroy', dashboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-    </tr>
+  <% if @dashboards.present? %>
+    <% @dashboards.each do |dashboard| %>
+      <tr>
+        <td width='20%'><h4><%= link_to dashboard.name, dashboard %></h4></td>
+        <td width='80%'><h4><small><%= dashboard.description %></small></h4></td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>
