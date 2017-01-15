@@ -13,9 +13,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name, :class => 'form-control'%>
   </div>
+
   <div class="field">
     <%= f.label :desription %><br>
     <%= f.text_field :description, :class => 'form-control' %>
