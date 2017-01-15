@@ -1,0 +1,15 @@
+<div class="page-header">
+  <div class="container">
+    <h1>
+     	Edit Dashboard: <%= @dashboard.name%>
+      <small class="pull-right">
+        <%= button_to @dashboard, {class: "btn btn-primary",:method => :get} do %>
+          <span class="glyphicon glyphicon-arrow-left"></span>
+        <% end %>
+      </small>			
+		</h1>
+	</div>
+</div>
+
+<%= render 'form' %>
+

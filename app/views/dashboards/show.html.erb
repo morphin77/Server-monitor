@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <div class="container">
+    <h1>
+      <%= @dashboard.name %>
+      <small><%= @dashboard.description %></small>
+      <small class="pull-right">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Settings
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Edit', edit_dashboard_path(@dashboard) %></li>
+            <li><%= link_to 'Destroy', @dashboard, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div> 
+      </small>
+    </h1>
+  </div>
+</div>
+

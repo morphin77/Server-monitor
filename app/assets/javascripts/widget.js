@@ -8,10 +8,16 @@ $.fn.EnableWidgtViewSettings = function(id){
     {
     	$("#"+id).draggable();
   		$("#"+id).resizable();
+  		$("#"+id).find("span").removeClass("glyphicon glyphicon-move");
+  		$("#"+id).find("span").addClass("glyphicon glyphicon-ok");
+  		$("#"+id).find("span").attr("style", "color:green");
     } 
   else
   	{
   		$("#"+id).draggable('destroy');
     	$("#"+id).resizable('destroy');
+    	$("#"+id).find("span").removeClass("glyphicon glyphicon-ok");
+    	$("#"+id).find("span").addClass("glyphicon glyphicon-move")
+    	$("#"+id).find("span").removeAttr("style");
   	}     
 	}

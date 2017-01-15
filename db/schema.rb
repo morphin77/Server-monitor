@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114161201) do
+ActiveRecord::Schema.define(version: 20170115131945) do
+
+  create_table "dashboards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "sys_infos", force: :cascade do |t|
     t.integer  "memory_used"
