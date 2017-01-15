@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <div class="container">
+    <h1>
+      Nodes
+      <small class="pull-right">
+        <%= button_to new_node_path, {class: "btn btn-primary",:method => :get} do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      </small>
+    </h1>
+  </div>
+</div>
+
+<% if @nodes.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Port</td>
+        <td>Login</td>
+        <td>Password</td>
+        <td></td>
+      </tr>
+    </thead>
+    <% @nodes.each do |node| %>
+    <tbody>
+      <tr>
+        <td><h4><%= link_to node.name, edit_node_path(node) %></h4></td>
+        <td><h4><small><%= node.address %></small></h4></td>
+        <td><h4><small><%= node.port %></small></h4></td>
+        <td><h4><small><%= node.username %></small></h4></td>
+        <td><h4><small><%= node.password %></small></h4></td>
+        <td><h4><small>
+          <%= link_to node, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-remove" style="color: red"></span>
+          <% end %>
+        </small></h4></td>  
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+<% end %>
+
+
+

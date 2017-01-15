@@ -13,15 +13,21 @@
   </div>
 </div>
 
-<table class="table">
-  <tbody>
-  <% if @dashboards.present? %>
+<% if @dashboards.present? %>
+  <table class="table">
+   <thead>
+      <tr>
+        <td>Name</td>
+        <td>Description</td>
+      </tr>
+    </thead>
     <% @dashboards.each do |dashboard| %>
+    <tbody>
       <tr>
         <td width='20%'><h4><%= link_to dashboard.name, dashboard %></h4></td>
         <td width='80%'><h4><small><%= dashboard.description %></small></h4></td>
       </tr>
+    </tbody>
     <% end %>
-  <% end %>
-  </tbody>
-</table>
+  </table>
+<% end %>
