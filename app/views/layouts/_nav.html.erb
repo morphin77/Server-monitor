@@ -11,16 +11,19 @@
       <%= link_to 'Simple Server monitor', root_path, :class => 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
       <% if user_signed_in? %>
-        <%= render 'layouts/menu' %>
-        <ul class="nav navbar-nav pull-right">
-          <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
-        </ul>
+        <%= render 'layouts/dashboard_menu' %>
+        <%= render 'layouts/node_menu' %>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+      </ul>
       <% else %>
-        <ul class="nav navbar-nav pull-right">
-          <li><%= link_to 'Sign in', new_user_session_path %></li>
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+      </ul>
       <% end %>
     </div><!--/.nav-collapse -->
   </div>

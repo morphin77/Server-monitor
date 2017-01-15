@@ -7,11 +7,6 @@ class NodesController < ApplicationController
     @nodes = Node.all
   end
 
-  # GET /nodes/1
-  # GET /nodes/1.json
-  def show
-  end
-
   # GET /nodes/new
   def new
     @node = Node.new
@@ -28,8 +23,8 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        format.html { redirect_to @node, notice: 'Node was successfully created.' }
-        format.json { render :show, status: :created, location: @node }
+        format.html { redirect_to nodes_path, notice: 'Node was successfully created.' }
+        format.json { render :index, status: :created }
       else
         format.html { render :new }
         format.json { render json: @node.errors, status: :unprocessable_entity }
@@ -42,8 +37,8 @@ class NodesController < ApplicationController
   def update
     respond_to do |format|
       if @node.update(node_params)
-        format.html { redirect_to @node, notice: 'Node was successfully updated.' }
-        format.json { render :show, status: :ok, location: @node }
+        format.html { redirect_to nodes_path, notice: 'Node was successfully updated.' }
+        format.json { render :index, status: :ok}
       else
         format.html { render :edit }
         format.json { render json: @node.errors, status: :unprocessable_entity }
@@ -69,6 +64,6 @@ class NodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def node_params
-      params.require(:node).permit(:name, :address, :username, :password, :user_id)
+      params.require(:node).permit(:name, :address, :port, :username, :password, :user_id)
     end
 end

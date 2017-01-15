@@ -1,6 +1,16 @@
-<h1>Editing Node</h1>
+<h1></h1>
+<div class="page-header">
+  <div class="container">
+    <h2>
+     	Editing Node: <%= @node.name%>
+      <small class="pull-right">
+        <%= button_to nodes_path, {class: "btn btn-primary",:method => :get} do %>
+          <span class="glyphicon glyphicon-arrow-left"></span>
+        <% end %>
+      </small>			
+		</h2>
+	</div>
+</div>
 
 <%= render 'form', node: @node %>
 
-<%= link_to 'Show', @node %> |
-<%= link_to 'Back', nodes_path %>

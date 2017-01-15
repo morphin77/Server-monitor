@@ -13,30 +13,34 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :port %>
+    <%= f.text_field :port, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.text_field :password, :class => 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+   <%= f.submit nil, :class => 'btn btn-primary' %>
   </div>
 <% end %>
