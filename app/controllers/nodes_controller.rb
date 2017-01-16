@@ -5,6 +5,7 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
     @nodes = Node.all
+    DataCollectionWorker.perform_async()
   end
 
   # GET /nodes/new
