@@ -1,2 +1,0 @@
-class SysInfo < ApplicationRecord
-end
