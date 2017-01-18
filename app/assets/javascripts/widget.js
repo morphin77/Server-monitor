@@ -18,3 +18,6 @@ $.fn.EnableWidgtViewSettings = function(id){
       $("#"+id).removeClass("draggable");
   	}     
 	}
+  $( function() {
+    $( ".dialog" ).dialog();
+  } );

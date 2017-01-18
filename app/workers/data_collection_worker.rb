@@ -2,7 +2,10 @@ class DataCollectionWorker
   include Sidekiq::Worker
 
   def perform()
-
+  	d = Dashboard.new(name: '777', description: '222', user_id: 1)
+		d.save!
+  	
+  	DataCollectionWorker.set(wait: 1.second).perform_async()
   	#meminfo = %x[free -k]
 		#@Total_memory = meminfo.split('Память:').last.split(' ').first.to_i
 		#@Avalible_memory = meminfo.split('Память:' ).last.split('Подкачка:').first.split(' ').last.to_i
@@ -15,7 +18,6 @@ class DataCollectionWorker
 		#мониторинг загрузки сети
 		#cat /sys/class/net/ens33/statistics/rx_bytes 
 		#пишем в базу, вычитаем предыдущее значение, отрисовывем дельту
-		#https://troolee.github.io/gridstack.js/ - панельки
 		#http://morrisjs.github.io/morris.js/index.html  - графики
   end
 end

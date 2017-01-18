@@ -9,6 +9,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'sidekiq'
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
